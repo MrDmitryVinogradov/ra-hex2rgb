@@ -14,14 +14,14 @@ function ColorInput() {
 
   const handleChange = (evt) => {
     const value = evt.target.value.split('');
-    console.log(value);
-    setForm(prevForm => ({ ...prevForm, color: evt.target.value }));
+
     if (value.length === 7) {
       let check = checkValidity(value);
       if (check) {
         setForm(prevForm => ({ ...prevForm, error: check }));
       }
       else {
+        setForm(prevForm => ({ ...prevForm, color: evt.target.value }));
         let rgb = convert(value);
         setForm(prevForm => ({ ...prevForm, rgb: rgb }));
       }
